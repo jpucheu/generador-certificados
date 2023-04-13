@@ -1,4 +1,4 @@
-country_codes = {
+prefijos_sudamerica = {
     'Argentina': ['AY', 'AZ', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'LO', 'LP', 'LQ', 'LR', 'LS', 'LT', 'LU', 'LV', 'LW'],
     'Aruba': ['P4'],
     'Bahamas': ['C6'],
@@ -30,5 +30,13 @@ country_codes = {
     'Surinam': ['PZ'],
     'Trinidad y Martín Vaz': ['PPØT', 'PQØT', 'PRØT', 'PSØT', 'PTØT', 'PUØT', 'PVØT', 'PWØT', 'PXØT', 'PYØT', 'ZVØT', 'ZWØT', 'ZXØT', 'ZYØT', 'ZZØT'],
     'Uruguay': ['CV','CW','CX'],
-    'Venezuela': ['4M','YV','YW','YX','YY'],}
+    'Venezuela': ['4M','YV','YW','YX','YY'],
+    }
 
+prefijos_limitrofes = {
+    'Argentina': ['AY', 'AZ', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'LO', 'LP', 'LQ', 'LR', 'LS', 'LT', 'LU', 'LV', 'LW'],
+    'Uruguay': ['CV','CW','CX'],
+    'Chile': ['3G', 'CA', 'CB', 'CC', 'CD', 'CE', 'XQ', 'XR'],
+    'Brazil': ['PP', 'PQ', 'PR', 'PS', 'PT', 'PU', 'PV', 'PW', 'PX', 'PY', 'ZV', 'ZW', 'ZX', 'ZY', 'ZZ'],
+    'Bolivia': ['CP'],
+    }
