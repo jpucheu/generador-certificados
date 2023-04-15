@@ -1,25 +1,25 @@
-#!/usr/bin/env python3
-import cgi
-import html
+import getpass
+from lotw_request import lotw_qso_report
 
-# Obtener los argumentos de la solicitud CGI
-arguments = cgi.FieldStorage()
+# Solicitar los datos de autenticación y los parámetros de consulta al usuario
+username = input("Ingrese su nombre de usuario de LoTW: ")
+password = getpass.getpass("Ingrese su contraseña de LoTW: ")
+callsign = input("Ingrese su indicativo de llamada: ")
+banda = input("Ingrese la banda de frecuencia a consultar ('2m', '1.25m', '70cm' o '23cm'): ")
+modo = input("Ingrese el modo de operación a consultar ('CW', 'DIGITAL', 'PHONE', 'IMAGE', 'MCW' o 'RTTY'): ")
 
-# Obtener los valores de los argumentos y sanitizarlos
-arg1 = html.escape(arguments.getvalue('arg1', ''))
-arg2 = html.escape(arguments.getvalue('arg2', ''))
-arg3 = html.escape(arguments.getvalue('arg3', ''))
+# Realizar la consulta a LoTW
+try:
+    results = lotw_qso_report(username, password, callsign, banda, modo)
+except Exception as e:
+    print("Error al realizar la consulta: ", str(e))
+    exit()
 
-# Validar que los argumentos sean alfanuméricos
-if not arg1.isalnum() or not arg2.isalnum() or not arg3.isalnum():
-    print("Content-type: text/html\n\n")
-    print("Error: Los argumentos deben ser alfanuméricos")
+# Imprimir los resultados
+if not results:
+    print("No se encontraron resultados.")
 else:
-    # Crear el string de respuesta
-    response_string = "Los argumentos recibidos fueron: {}, {}, {}".format(arg1, arg2, arg3)
-
-    # Imprimir la cabecera de la respuesta HTTP
-    print("Content-type: text/html\n\n")
-
-    # Imprimir el string de respuesta
-    print(response_string)
+    for result in results:
+        print("Gridsquare:", result.get('GRIDSQUARE'))
+        print("Mi gridsquare:", result.get('MY_GRIDSQUARE'))
+        print("--------------------------")
