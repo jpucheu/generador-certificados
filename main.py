@@ -1,5 +1,5 @@
 import getpass
-from lotw_request import lotw_qso_report
+import lotw_request
 
 # Solicitar los datos de autenticación y los parámetros de consulta al usuario
 username = input("Ingrese su nombre de usuario de LoTW: ")
