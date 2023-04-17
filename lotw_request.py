@@ -26,8 +26,8 @@ def lotw_qso_report(username, password, callsign, banda, modo):
     
     # Parámetros para la consulta a la API de LoTW
     params = {
-        'USERNAME': username,
-        'PASSWORD': password,
+        'login': username,
+        'password': password,
         'qso_owncall': callsign,
         'qso_qsl': 'yes',
         'qso_mode': modo,
